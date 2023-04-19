@@ -11,7 +11,7 @@
     height: 75px;
 }
 
-#display, #result{
+#input, #result{
     height: 40px;
     width: auto;
     background-color: black;

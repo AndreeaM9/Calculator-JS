@@ -1,0 +1,35 @@
+.calculator{
+    border: 3px solid black;
+    height: 400px;
+    width: 300px;
+    background-color: black;
+}
+
+.item{
+    display: inline;
+    width: 75px;
+    height: 75px;
+}
+
+#display, #result{
+    height: 40px;
+    width: auto;
+    background-color: black;
+    color: white;
+    border: none;
+}
+ #clear{
+
+ }
+
+
+.buttons{
+    display: grid;
+    grid-template: 
+    [row1-start] "clear divide" 25px [row1-end]
+    [row2-start] "one two three multiply" 25px [row2-end]
+    [row3-start] "four five six substract" 25px [row2-end]
+    [row4-strat] "seven eight nine plus" 25px [row4-end]
+    [row5-start] "zero decimal equals" 25px [row5-end]
+    / auto 50px auto;
+}

@@ -216,7 +216,7 @@ function clearScreen() {
     firstOperand = '';
     secondOperand = '';
     operator = '';
-    // result = '';
+    result = '';
 }
 
 // Function to perform the calculation
@@ -238,9 +238,9 @@ function calculate() {
         case '/':
             tempResult = num1 / num2;
             break;
-        case '%':
-            tempResult = num1 % num2;
-            break;
+        // case '%':
+        //     tempResult = num1 % num2;
+        //     break;
         default:
             break;
     }

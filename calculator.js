@@ -155,104 +155,137 @@
 // // });
 
 // Get the calculator screen and buttons
-const screen = document.getElementById('input');
-const resultScreen = document.getElementById('result');
-const buttons = document.querySelectorAll('.item');
+// const screen = document.getElementById('input');
+// const resultScreen = document.getElementById('result');
+// const buttons = document.querySelectorAll('.item');
 
-let firstOperand = '';
-let secondOperand = '';
-let operator = '';
-let result = '';
+// let firstOperand = '';
+// let secondOperand = '';
+// let operator = '';
+// let result = '';
 
-// Add click event listeners to all the calculator buttons
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        const buttonValue = button.textContent;
-        handleInput(buttonValue);
-    });
-});
+// // Add click event listeners to all the calculator buttons
+// buttons.forEach((button) => {
+//     button.addEventListener('click', () => {
+//         const buttonValue = button.textContent;
+//         handleInput(buttonValue);
+//     });
+// });
 
-// Function to handle user input
-function handleInput(value) {
-    // Clear the screen if 'C' is pressed
-    if (value === 'C') {
-        clearScreen();
-        return;
-    }
-    // Handle decimal input
-    if (value === '.') {
-        if (screen.value.includes('.')) {
-            return;
+// // Function to handle user input
+// function handleInput(value) {
+//     // Clear the screen if 'C' is pressed
+//     if (value === 'C') {
+//         clearScreen();
+//         return;
+//     }
+//     // Handle decimal input
+//     if (value === '.') {
+//         if (screen.value.includes('.')) {
+//             return;
+//         }
+//     }
+//     // Handle numeric input
+//     if (!isNaN(value)) {
+//         if (operator === '') {
+//             firstOperand += value;
+//             screen.value = firstOperand;
+//         } else {
+//             secondOperand += value;
+//             screen.value = secondOperand;
+//         }
+//     }
+//     // Handle operator input
+//     if (['+', '-', '*', '/', '%'].includes(value)) {
+//         if (secondOperand !== '') {
+//             calculate();
+//         }
+//         operator = value;
+//     }
+//     // Handle equals input
+//     if (value === '=') {
+//         calculate();
+//         operator = '';
+//     }
+// }
+
+// // Function to clear the screen
+// function clearScreen() {
+//     screen.value = '0';
+//     resultScreen.value = '';
+//     firstOperand = '';
+//     secondOperand = '';
+//     operator = '';
+//     // result = '';
+// }
+
+// // Function to perform the calculation
+// function calculate() {
+//     let num1 = parseFloat(firstOperand);
+//     let num2 = parseFloat(secondOperand);
+//     let tempResult = '';
+
+//     switch (operator) {
+//         case '+':
+//             tempResult = num1 + num2;
+//             break;
+//         case '-':
+//             tempResult = num1 - num2;
+//             break;
+//         case '*':
+//             tempResult = num1 * num2;
+//             break;
+//         case '/':
+//             tempResult = num1 / num2;
+//             break;
+//         case '%':
+//             tempResult = num1 % num2;
+//             break;
+//         default:
+//             break;
+//     }
+//     // Handle division by zero
+//     if (tempResult === Infinity || tempResult === -Infinity) {
+//         result = 'Error: Cannot divide by zero';
+//         resultScreen.value = result;
+//         clearScreen();
+//         return;
+//     }
+//     // Handle floating point errors
+//     result = Math.round(tempResult * 100000) / 100000;
+//     resultScreen.value = result;
+//     clearScreen();
+// }
+
+let input = document.getElementById('input');
+let result = document.getElementById('result');
+let buttons = document.querySelectorAll('button');
+
+let string = "";
+let arr = Array.from(buttons);
+arr.forEach(button => {
+    button.addEventListener('click', (e) =>{
+        if(e.target.innerHTML == '='){
+            string = eval(string);
+            result.value = string;
         }
-    }
-    // Handle numeric input
-    if (!isNaN(value)) {
-        if (operator === '') {
-            firstOperand += value;
-            screen.value = firstOperand;
-        } else {
-            secondOperand += value;
-            screen.value = secondOperand;
+        
+        else if(e.target.innerHTML == 'C'){
+            string = "";
+            input.value = string;
+            result.value = string;
         }
-    }
-    // Handle operator input
-    if (['+', '-', '*', '/', '%'].includes(value)) {
-        if (secondOperand !== '') {
-            calculate();
+
+        // else if(e.target.innerHTML == 'DEL'){
+        //     string = string.substring(0, string.length-1);
+        //     input.value = string;
+        // }
+        
+        else{
+            string += e.target.innerHTML;
+            input.value = string;
         }
-        operator = value;
-    }
-    // Handle equals input
-    if (value === '=') {
-        calculate();
-        operator = '';
-    }
-}
 
-// Function to clear the screen
-function clearScreen() {
-    screen.value = '0';
-    resultScreen.value = '';
-    firstOperand = '';
-    secondOperand = '';
-    operator = '';
-    // result = '';
-}
+    })
+})
 
-// Function to perform the calculation
-function calculate() {
-    let num1 = parseFloat(firstOperand);
-    let num2 = parseFloat(secondOperand);
-    let tempResult = '';
-
-    switch (operator) {
-        case '+':
-            tempResult = num1 + num2;
-            break;
-        case '-':
-            tempResult = num1 - num2;
-            break;
-        case '*':
-            tempResult = num1 * num2;
-            break;
-        case '/':
-            tempResult = num1 / num2;
-            break;
-        case '%':
-            tempResult = num1 % num2;
-            break;
-        default:
-            break;
-    }
-    // Handle division by zero
-    if (tempResult === Infinity || tempResult === -Infinity) {
-        result = 'Error: Cannot divide by zero';
-        resultScreen.value = result;
-        clearScreen();
-        return;
-    }
-    // Handle floating point errors
-    result = Math.round(tempResult * 100000) / 100000;
-    resultScreen.value = result;
-    clearScreen();
-}

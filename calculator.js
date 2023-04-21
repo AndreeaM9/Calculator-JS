@@ -286,6 +286,56 @@ arr.forEach(button => {
             input.value = string;
         }
 
+<<<<<<< HEAD
     })
 })
 
+=======
+// Function to clear the screen
+function clearScreen() {
+    screen.value = '0';
+    resultScreen.value = '';
+    firstOperand = '';
+    secondOperand = '';
+    operator = '';
+    result = '';
+}
+
+// Function to perform the calculation
+function calculate() {
+    let num1 = parseFloat(firstOperand);
+    let num2 = parseFloat(secondOperand);
+    let tempResult = '';
+
+    switch (operator) {
+        case '+':
+            tempResult = num1 + num2;
+            break;
+        case '-':
+            tempResult = num1 - num2;
+            break;
+        case '*':
+            tempResult = num1 * num2;
+            break;
+        case '/':
+            tempResult = num1 / num2;
+            break;
+        // case '%':
+        //     tempResult = num1 % num2;
+        //     break;
+        default:
+            break;
+    }
+    // Handle division by zero
+    if (tempResult === Infinity || tempResult === -Infinity) {
+        result = 'Error: Cannot divide by zero';
+        resultScreen.value = result;
+        clearScreen();
+        return;
+    }
+    // Handle floating point errors
+    result = Math.round(tempResult * 100000) / 100000;
+    resultScreen.value = result;
+    clearScreen();
+}
+>>>>>>> 27606c315f5e09ab81717cadc6600dc797cabf77

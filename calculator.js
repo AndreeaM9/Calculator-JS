@@ -1,6 +1,5 @@
 
 
-
 let input = document.getElementById('input');
 let result = document.getElementById('result');
 let buttons = document.querySelectorAll('button');

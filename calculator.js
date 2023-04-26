@@ -1,49 +1,47 @@
 
-// // let equal_pressed = 0;
+let equal_pressed = 0;
 
-// // let button_input = document.querySelectorAll(".item");
+let button_input = document.querySelectorAll(".item");
 
-// // let display = document.getElementById(".display");
-// // let equal = document.getElementById("equals");
-// // let clear = document.getElementById("clear");
-// // // let erase = document.getElementById('erase');
+let display = document.getElementById("input");
+let equal = document.getElementById("equal");
+let clear = document.getElementById("clear");
 
-// // window.onload = () => {
-// //     display.value = "";
-// // };
 
-// // button_input.forEach((button_class) => {
-// //     button_class.addEventListener("click", () => {
-// //         if(equal_pressed == 1){
-// //             display.value = "";
-// //             equal_pressed = 0;
-// //         }
-// //         display.value += button_class.value;
-// //     });
-// // });
+window.onload = () => {
+    input.value = "";
+};
 
-// // equal.addEventListener ("click",() => {
-// //     equal_pressed = 1;
-// //     let inp_val = display.value;
-// //     try {
-// //         let solution = eval(inp_val);
-// //         if(Number.isInteger(solution)) {
-// //             display.value = solution;
-// //         } else {
-// //             display.value = solution.toFixed(2);
-// //         }
-// //     } catch (err) {
-// //         alert("Invalid Input")
-// //     }
-// // });
+button_input.forEach((button_class) => {
+    button_class.addEventListener("click", () => {
+        if(equal_pressed == 1){
+            display.value = "";
+            equal_pressed = 0;
+        }
+        display.value += button_class.value;
+    });
+});
+
+document.querySelector('#equal').addEventListener ("click",() => {
+    equal_pressed = 1;
+    let inp_val = display.value;
+    try {
+        let solution = eval(inp_val);
+        if(Number.isInteger(solution)) {
+            display.value = solution;
+        } else {
+            display.value = solution.toFixed(2);
+        }
+    } catch (err) {
+        alert("Invalid Input")
+    }
+});
 
 // //  clear.addEventListener("click", () => {
-// //     display.value = "";
+// //     input.value = "";
 // //  });
  
-// //  erase.addEventListener("click", () => {
-// //     display.value = input.value.substr(0, input.value.length - 1);
-// //  });
+// //  
 
 // let equal_pressed = 0;
 // //Refer all buttons excluding AC and DEL

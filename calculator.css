@@ -48,17 +48,18 @@
     opacity: 0.3;
 }
 
-#clear, #zero {
+#clear1, #zero{
     grid-column: span 2;
     border-radius: 20px;
     font-size: 25px;
     /* grid-template-columns: repeat(4, 1fr); */
     }
 
-#equals{
+#egal{
     grid-row: span 2;
     border-radius: 20px;
     font-size: 25px;
+    height: 190px;
 }
     
     .buttons {
@@ -91,7 +92,7 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
-    #substract, #equals, #multiply, #add, #clear, #divide {
+    #substract, #egal, #multiply, #add, #clear1, #divide {
     border: 2px solid black;
     background-color: orange;
     color: white; /* Adaugam culoarea textului pentru a fi mai vizibil */

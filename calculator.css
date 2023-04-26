@@ -75,6 +75,12 @@
     font-size: 25px;
     /* grid-template-columns: repeat(4, 1fr); */
     }
+
+    #equals{
+        grid-row: span 2;
+        border-radius: 20px;
+        font-size: 25px; 
+    }
     
     .buttons {
     display: grid;
